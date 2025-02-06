@@ -1,6 +1,8 @@
 from manim import LEFT, RIGHT, ManimColor
 from dataclasses import dataclass
 
+from moderngl_window.meta import data
+
 @dataclass
 class Colors:
     # Primaries (shouldnt be referenced in config, create function color instead)
@@ -42,6 +44,17 @@ class Slide:
     class Counter(Text):
         color: ManimColor = Colors.text_muted
         size: float = 1
+
+@dataclass
+class BasicSlide(Slide):
+
+    @dataclass
+    class Title(Text):
+        pass
+
+    @dataclass
+    class Separator():
+        color = Colors.text_muted
 
 @dataclass 
 class TitleSlide(Slide):
