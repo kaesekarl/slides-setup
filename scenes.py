@@ -1,5 +1,7 @@
 #Python Imports
 
+import numpy as np
+
 # Manim Imports
 
 from manim import *
@@ -25,6 +27,19 @@ class Scene1(Slide):
 class Scene2(Slide):
     def construct(self):
         self.add(BasicSlide(title="Test").make_all())
+        positions = []
+        dots = VGroup()
+        # for i in range(-4, 4):
+        #     for j in range(-4, 4):
+        #         positions += np.array([i, j, 0])
+        for i in range(-6, 7):
+            for j in range(-3, 4):
+                if i == 0 or j == 0:
+                    dots += Dot((i, j, 0), color=RED)
+                else:
+                    dots += Dot((i, j, 0))
+        self.play(Create(dots), run_time=2, lag_ratio=1/72)
+        self.wait(2)
 
 class Scene3(Slide):
     def construct(self):

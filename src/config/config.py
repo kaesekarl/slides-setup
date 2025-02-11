@@ -1,3 +1,4 @@
+from cloup import Color
 from manim import LEFT, RIGHT, ManimColor
 from dataclasses import dataclass
 
@@ -50,7 +51,9 @@ class BasicSlide(Slide):
 
     @dataclass
     class Title(Text):
-        pass
+        size: float = 0.7
+        weight: str = "BOLD"
+        color: ManimColor = Colors.header1
 
     @dataclass
     class Separator():
