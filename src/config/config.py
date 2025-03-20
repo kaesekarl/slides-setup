@@ -44,7 +44,13 @@ class Slide:
     @dataclass
     class Counter(Text):
         color: ManimColor = Colors.text_muted
-        size: float = 1
+        size: float = 0.7
+
+        @dataclass
+        class ProgressBar:
+            bar_color1: ManimColor = Colors.header1
+            bar_color2: ManimColor = Colors.text_muted
+            thickness: float = 0.1
 
 @dataclass
 class BasicSlide(Slide):

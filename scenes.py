@@ -13,6 +13,8 @@ import src.config.config as c
 from src.slides.titleSlide import TitleSlide
 from src.slides.basicSlide import BasicSlide
 
+from src.tools.slideCounter import Counter
+
 config.background_color = c.Slide.Background.color
 Text.set_default(font=c.Slide.Text.font)
 MarkupText.set_default(font=c.Slide.Text.font)
@@ -26,7 +28,8 @@ class Scene1(Slide):
 
 class Scene2(Slide):
     def construct(self):
-        self.add(BasicSlide(title="Test").make_all())
+        count = Counter(1, 10)
+        self.add(BasicSlide("Testg", count).make_all())
         positions = []
         dots = VGroup()
         # for i in range(-4, 4):
@@ -38,25 +41,26 @@ class Scene2(Slide):
                     dots += Dot((i, j, 0), color=RED)
                 else:
                     dots += Dot((i, j, 0))
-        self.play(Create(dots), run_time=2, lag_ratio=1/72)
+        self.play(Create(dots), run_time=2, lag_ratio=1/len(dots))
         self.wait(2)
 
 class Scene3(Slide):
     def construct(self):
         self.play(Create(Circle()))
         self.play(Create(Square(color=BLUE).shift(UP)))
+        self.play(Create(Circle(2, BLUE)))
 
         self.wait()
         self.pause()
 
         self.add(Square().shift(DOWN))
-        self.play(Create(Circle().to_edge(RIGHT)))
+        self.play(Create(Circle().to_edge()))
+        self.play()
 
         self.wait()
         self.pause()
 
         self.play(Create(Square().shift(2*DOWN)))
-
         self.wait()
         self.pause()
 
@@ -67,6 +71,22 @@ class Scene3(Slide):
         self.pause()
         self.wait()
 
-with tempconfig({"quality": "high_quality", "preview": True}):
-    scene = Scene2()
-    scene.render()
+class Scene4(Slide):
+    def construct(self):
+        count = Counter(currentSlide=1, maxSlides=10)
+
+        scenes = VGroup()
+        for i in range(4):
+            i += 1
+            sl = BasicSlide(f"Test Nummer {i}", count).make_all()
+            rec = SurroundingRectangle(sl, color=c.Colors.white_muted, buff=MED_LARGE_BUFF)
+            scenes += VGroup(sl, rec).scale(0.45)
+            count.inc_slide()
+
+        scenes.arrange_in_grid(2, 2).center()
+        self.play(Create(scenes), lag_ratio=1/len(scenes))
+        self.wait(2)
+
+# with tempconfig({"quality": "high_quality", "preview": True}):
+#     scene = Scene2()
+#     scene.render()

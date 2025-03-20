@@ -20,16 +20,19 @@ class BasicSlide:
             counter = self.counter
         if counter is None: # check again, because self.counter could also be None
             raise Exception("Counter is None, has to be given via this function or the BasicSlide")
-        return counter.make_counter()
+        return counter.make_counter().to_corner(DR)
 
     def make_separator(self):
         conf = c.BasicSlide.Separator
         return VGroup(DashedLine(start=[-6, 3.2, 0], end=[6, 3.2, 0], color=conf.color))
 
     def make_all(self) -> VGroup:
+        """
+        Creates all provided VMobjects. If no Counter is specified in the Object, it is omitted.
+        """
         conf = c.BasicSlide
         sep = self.make_separator()
-        title = self.make_title().scale(conf.Title.size).align_to(sep, RIGHT).align_to(sep, DOWN).shift(UP*0.2+LEFT*0.2)
+        title = self.make_title().scale(conf.Title.size).align_to(sep, LEFT).align_to(sep, DOWN).shift(UP*0.1+RIGHT*0.2)
 
         if self.counter is None:
             return VGroup(sep, title)
