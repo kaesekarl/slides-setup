@@ -5,7 +5,7 @@ import numpy as np
 # Manim Imports
 
 from manim import *
-from manim_presentation import Slide
+# from manim_slides import Slide
 
 # Other Imports
 
@@ -19,22 +19,18 @@ config.background_color = c.Slide.Background.color
 Text.set_default(font=c.Slide.Text.font)
 MarkupText.set_default(font=c.Slide.Text.font)
 
-class Scene1(Slide):
+class Scene1(Scene):
     def construct(self):
         self.add(TitleSlide(title=["Dies ist ein Titel", "für meine Präsentation"],
                             subtitle=["Das hier ist der Untertitel.", "Dies ist zum testen für sehr lange Untertitel"],
                             author="Jan Bielawa")
                             .make_all())
 
-class Scene2(Slide):
+class Scene2(Scene):
     def construct(self):
         count = Counter(1, 10)
         self.add(BasicSlide("Testg", count).make_all())
-        positions = []
         dots = VGroup()
-        # for i in range(-4, 4):
-        #     for j in range(-4, 4):
-        #         positions += np.array([i, j, 0])
         for i in range(-6, 7):
             for j in range(-3, 4):
                 if i == 0 or j == 0:
@@ -44,34 +40,29 @@ class Scene2(Slide):
         self.play(Create(dots), run_time=2, lag_ratio=1/len(dots))
         self.wait(2)
 
-class Scene3(Slide):
+class Scene3(Scene):
     def construct(self):
         self.play(Create(Circle()))
         self.play(Create(Square(color=BLUE).shift(UP)))
         self.play(Create(Circle(2, BLUE)))
 
         self.wait()
-        self.pause()
 
         self.add(Square().shift(DOWN))
         self.play(Create(Circle().to_edge()))
-        self.play()
 
         self.wait()
-        self.pause()
 
         self.play(Create(Square().shift(2*DOWN)))
         self.wait()
-        self.pause()
 
         self.play(Create(Circle().to_edge(LEFT)))
         self.play(Create(Circle().to_edge(UP)))
 
         self.wait()
-        self.pause()
         self.wait()
 
-class Scene4(Slide):
+class Scene4(Scene):
     def construct(self):
         count = Counter(currentSlide=1, maxSlides=10)
 
