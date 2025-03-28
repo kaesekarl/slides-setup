@@ -1,8 +1,5 @@
-from cloup import Color
 from manim import LEFT, RIGHT, ManimColor
 from dataclasses import dataclass
-
-from moderngl_window.meta import data
 
 @dataclass
 class Colors:

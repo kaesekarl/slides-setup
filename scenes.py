@@ -1,23 +1,44 @@
+####################################################################################################################################################
 #Python Imports
+####################################################################################################################################################
 
 import numpy as np
 
+####################################################################################################################################################
 # Manim Imports
+####################################################################################################################################################
 
 from manim import *
 from manim_presentation import Slide
 
+####################################################################################################################################################
 # Other Imports
+####################################################################################################################################################
 
 import src.config.config as c
+
 from src.slides.titleSlide import TitleSlide
 from src.slides.basicSlide import BasicSlide
 
 from src.tools.slideCounter import Counter
 
+####################################################################################################################################################
+# Some basic settings for scene. Can be changed. Values should be stored in config
+####################################################################################################################################################
+
 config.background_color = c.Slide.Background.color
 Text.set_default(font=c.Slide.Text.font)
 MarkupText.set_default(font=c.Slide.Text.font)
+
+####################################################################################################################################################
+# Some values/states that should be tracked across Classes
+####################################################################################################################################################
+
+tracker_current_slide_mobject = None
+
+####################################################################################################################################################
+# Begin File
+####################################################################################################################################################
 
 class Scene1(Scene):
     def construct(self):
@@ -42,30 +63,7 @@ class Scene2(Scene):
 
 class Scene3(Slide):
     def construct(self):
-        self.play(Create(Circle()))
-        self.play(Create(Square(color=BLUE).shift(UP)))
-        self.play(Create(Circle(2, BLUE)))
-        self.pause()
-
-        self.wait()
-        self.pause()
-
-        self.add(Square().shift(DOWN))
-        self.play(Create(Circle().to_edge()))
-        self.pause()
-
-        self.wait()
-
-        self.play(Create(Square().shift(2*DOWN)))
-        self.wait()
-        self.pause()
-
-        self.play(Create(Circle().to_edge(LEFT)))
-        self.play(Create(Circle().to_edge(UP)))
-        self.pause()
-
-        self.wait()
-        self.wait()
+        pass
 
 class Scene4(Scene):
     def construct(self):
