@@ -5,7 +5,7 @@ import numpy as np
 # Manim Imports
 
 from manim import *
-# from manim_slides import Slide
+from manim_presentation import Slide
 
 # Other Imports
 
@@ -40,24 +40,29 @@ class Scene2(Scene):
         self.play(Create(dots), run_time=2, lag_ratio=1/len(dots))
         self.wait(2)
 
-class Scene3(Scene):
+class Scene3(Slide):
     def construct(self):
         self.play(Create(Circle()))
         self.play(Create(Square(color=BLUE).shift(UP)))
         self.play(Create(Circle(2, BLUE)))
+        self.pause()
 
         self.wait()
+        self.pause()
 
         self.add(Square().shift(DOWN))
         self.play(Create(Circle().to_edge()))
+        self.pause()
 
         self.wait()
 
         self.play(Create(Square().shift(2*DOWN)))
         self.wait()
+        self.pause()
 
         self.play(Create(Circle().to_edge(LEFT)))
         self.play(Create(Circle().to_edge(UP)))
+        self.pause()
 
         self.wait()
         self.wait()
