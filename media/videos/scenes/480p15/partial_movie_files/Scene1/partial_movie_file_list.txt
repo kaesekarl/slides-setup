@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:/home/jbx/010-code/slides-setup/media/videos/scenes/480p15/partial_movie_files/Scene1/83965692_2942145284_223132457.mp4'
+file 'file:/home/jbx/010-code/slides-setup/media/videos/scenes/480p15/partial_movie_files/Scene1/559559820_667144672_2972065855.mp4'
+file 'file:/home/jbx/010-code/slides-setup/media/videos/scenes/480p15/partial_movie_files/Scene1/559559820_3238792873_1291941708.mp4'
+file 'file:/home/jbx/010-code/slides-setup/media/videos/scenes/480p15/partial_movie_files/Scene1/559559820_3258484566_3279130276.mp4'
+file 'file:/home/jbx/010-code/slides-setup/media/videos/scenes/480p15/partial_movie_files/Scene1/559559820_32953290_4220568881.mp4'
+file 'file:/home/jbx/010-code/slides-setup/media/videos/scenes/480p15/partial_movie_files/Scene1/559559820_667144672_933314590.mp4'
+file 'file:/home/jbx/010-code/slides-setup/media/videos/scenes/480p15/partial_movie_files/Scene1/559559820_667144672_2959180974.mp4'
