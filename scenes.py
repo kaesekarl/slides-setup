@@ -44,16 +44,13 @@ count = Counter(1, 10)
 
 class Scene1(Slide):
     def construct(self):
-        slide1 = BasicSlide().make_all()
+        slide1 = BasicSlide()
         self.play(Create(slide1))
         self.wait()
 
         test = TriangleGroup()
 
-        self.play(*[Create(i) for i in test.all])
-        self.play(Rotate(test.tri, TAU/3, about_point=[i for i in test.tri.get_center_of_mass()]))
-        self.play(test.tri.animate.scale(0.5))
-
+        self.play(Create(test))
         self.wait()
         self.pause()
 

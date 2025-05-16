@@ -3,18 +3,28 @@ from manim import *
 import src.config.config as c
 from src.tools.slideCounter import Counter
 
-class BasicSlide:
-    def __init__(self, title:str="Title", counter:Counter|None=None):
+class BasicSlide(VMobject):
+    def __init__(self, title:str="Title", counter:Counter|None=None, **kwargs):
+        super().__init__(**kwargs)
         self.title = title
         self.counter = counter
+
+        self.add(self.make_separator())
+        self.add(self.make_title())
+        if self.counter is not None:
+            self.add(self.make_counter())
 
     def make_title(self, title=None):
         conf = c.BasicSlide.Title
         if title is None:
             title = self.title
 
-        return VGroup(MarkupText(title, color=conf.color, font=conf.font, weight=conf.weight))
-    
+        return VGroup(MarkupText(title, color=conf.color, font=conf.font, weight=conf.weight).
+                      scale(c.BasicSlide.Title.size).
+                      align_to(self.make_separator(), LEFT).
+                      align_to(self.make_separator(), DOWN).
+                      shift(UP*0.1+RIGHT*0.2))
+
     def make_counter(self, counter=None):
         if counter is None:
             counter = self.counter
