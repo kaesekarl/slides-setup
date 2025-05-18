@@ -44,8 +44,10 @@ count = Counter(1, 10)
 
 class Scene1(Slide):
     def construct(self):
+        slide0 = TitleSlide("Titel für die Präsentation", "Untertitel gehört hier auch mit rein", "Jan Bielawa")
         slide1 = BasicSlide()
-        self.play(Create(slide1))
+        self.play(Create(slide0))
+        self.play(FadeOut(slide0), FadeIn(slide1), run_time=0.5)
         self.wait()
 
         test = TriangleGroup()

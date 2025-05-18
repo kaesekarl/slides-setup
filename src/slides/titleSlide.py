@@ -4,7 +4,7 @@ from manim import *
 
 import src.config.config as c
 
-class TitleSlide:
+class TitleSlide(VMobject):
     """
     This Class is used to Create a TitleSlide. It is intended to be used as the first Slide in a Presentation.
     It Contains a Title, a Subtitle and an Author. 
@@ -12,7 +12,7 @@ class TitleSlide:
     The Colors, fonts, sizes, etc. are derived from the config.py.
     """
 
-    def __init__(self, title:str|list[str]="Title", subtitle:str|list[str]="Subtitle", author:str|list[str]="Author"):
+    def __init__(self, title:str|list[str]="Title", subtitle:str|list[str]="Subtitle", author:str|list[str]="Author", **kwargs):
         """
         Parameters
         ----------
@@ -23,10 +23,13 @@ class TitleSlide:
         author : str | list
             The Author of the Presentation
         """
+        super().__init__(**kwargs)
 
         self.title = title
         self.subtitle = subtitle
         self.author = author
+
+        self.add(self.make_all())
 
     def make_title(self, title=None) -> VGroup:
         if title is None:
