@@ -1,0 +1,6 @@
+# This file is used internally by FFMPEG.
+file 'file:/home/janbx/100-code/slides-setup/media/videos/scenes/720p30/partial_movie_files/Scene2/4101735300_2059094866_223132457.mp4'
+file 'file:/home/janbx/100-code/slides-setup/media/videos/scenes/720p30/partial_movie_files/Scene2/189536774_1754310298_3478273810.mp4'
+file 'file:/home/janbx/100-code/slides-setup/media/videos/scenes/720p30/partial_movie_files/Scene2/189536774_411884657_792043443.mp4'
+file 'file:/home/janbx/100-code/slides-setup/media/videos/scenes/720p30/partial_movie_files/Scene2/189536774_1754310298_1660483330.mp4'
+file 'file:/home/janbx/100-code/slides-setup/media/videos/scenes/720p30/partial_movie_files/Scene2/189536774_1754310298_3119040091.mp4'

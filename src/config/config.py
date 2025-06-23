@@ -7,6 +7,10 @@ class Colors:
     white = ManimColor.from_hex("#ffffff")
     white_muted = ManimColor.from_hex("#d0d0d0")
 
+    red = ManimColor.from_hex("#ff0000")
+    green = ManimColor.from_hex("#00ff00")
+    blue = ManimColor.from_hex("#0000ff")
+
     # ZUT Colors
     zut_blue = ManimColor.from_hex("#6CADDF")
     dark_gray = ManimColor.from_hex("#2B2E34")
@@ -62,7 +66,7 @@ class BasicSlide(Slide):
     class Separator():
         color = Colors.text_muted
 
-@dataclass 
+@dataclass
 class TitleSlide(Slide):
 
     @dataclass
@@ -93,3 +97,11 @@ class TitleSlide(Slide):
         dashed_ratio = 0.5
         dash_length = 0.07
 
+@dataclass
+class TriangleGroup:
+
+    @dataclass
+    class Angles:
+        angle_1 = Colors.red
+        angle_2 = Colors.green
+        angle_3 = Colors.blue

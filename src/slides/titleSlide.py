@@ -37,7 +37,7 @@ class TitleSlide(VMobject):
         conf = c.TitleSlide.Title
 
         if type(title) is str:
-            return VGroup(MarkupText(title, color=conf.color))
+            return VGroup(MarkupText(title, color=conf.color, font=conf.font, weight=conf.weight))
 
         if type(title) is list:
             ret = VGroup(*[MarkupText(i, color=conf.color, font=conf.font, weight=conf.weight) for i in title]).arrange(DOWN, aligned_edge=conf.alignment)

@@ -9,7 +9,7 @@ import numpy as np
 ####################################################################################################################################################
 
 from manim import *
-from manim_presentation import Slide
+from manim_presentation import Slide # I don't use this for the presentation itself, i create separate files in the end (see concat_scenes.py)
 
 ####################################################################################################################################################
 # Slides-Setup Imports
@@ -17,11 +17,14 @@ from manim_presentation import Slide
 
 import src.config.config as c
 
+# All kinds of Slide-Types
 from src.slides.titleSlide import TitleSlide
 from src.slides.basicSlide import BasicSlide
 
+# All kinds of Tool-Types
 from src.tools.slideCounter import Counter
 
+# All kinds of Custom VMobject-Types
 from src.objects.triangleGroup import TriangleGroup
 
 ####################################################################################################################################################
@@ -44,22 +47,45 @@ count = Counter(1, 10)
 
 class Scene1(Slide):
     def construct(self):
-        slide0 = TitleSlide("Titel für die Präsentation", "Untertitel gehört hier auch mit rein", "Jan Bielawa")
-        slide1 = BasicSlide()
-        self.play(Create(slide0))
-        self.play(FadeOut(slide0), FadeIn(slide1), run_time=0.5)
-        self.wait()
+        slide0 = TitleSlide("Dies ist ein Test für den Titel", "Dies könnte ein funny Subtitle für die Präsi sein", "und so heiße ich")
+        slide1 = BasicSlide("Erster Part", count)
 
-        test = TriangleGroup()
-
-        self.play(Create(test))
+        self.play(Write(slide0))
         self.wait()
         self.pause()
 
-        
-
+        self.play(FadeOut(slide0), FadeIn(slide1), run_time=0.5)
+        self.wait()
+        self.pause()
         count.inc_slide()
 
+        tri = TriangleGroup()
+
+        self.play(Create(tri))
+        self.wait()
+        self.pause()
+        self.wait()
+
+class Scene2(Slide):
+    def construct(self):
+        slide0 = BasicSlide("Sinnvolle Programme", count)
+
+        self.play(Write(slide0))
+        self.wait()
+        self.pause()
+        count.inc_slide()
+
+        slide1 = BasicSlide("Sinnfreie Programme", count)
+
+        self.play(FadeOut(slide0), Write(slide1), run_time=0.5)
+        self.wait()
+        self.pause()
+        self.wait()
+
+class Scene3(Slide):
+    def construct(self):
+        tri = TriangleGroup()
+        self.add(tri)
         self.wait()
 
 # with tempconfig({"quality": "high_quality", "preview": True}):
