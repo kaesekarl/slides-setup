@@ -61,13 +61,23 @@ class Intro(Slide):
               "Gute Programme",
               "Best Practices",
               "Fragerunde"]
-        bp = VGroup(*[Text(i) for i in bp]).arrange(DOWN, aligned_edge=LEFT).to_edge(LEFT, buff=2)
+        bp = VGroup(*[Text(i).scale(0.8) for i in bp]).arrange(DOWN, aligned_edge=LEFT).to_edge(LEFT, buff=2)
+        self.play(Write(bp))
+
+        arrow = Arrow().next_to(bp[0], LEFT).set_color(c.Colors.header1).set_y(5)
+        self.play(Create(arrow))
+        self.wait()
+        self.pause()
 
         for i in bp:
-            self.play(Write(i))
+            self.play(arrow.animate.set_y(i.get_y()))
             self.wait()
             self.pause()
 
+        self.clear()
+
+        moin = BasicSlide("Moin!")
+        self.play(Create(moin))
 
 
 
