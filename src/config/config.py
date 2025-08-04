@@ -21,7 +21,9 @@ class Colors:
     # Function Colors
     text = white
     text_muted = white_muted
-    header1 = zut_blue
+
+    accent1 = zut_blue
+    header1 = accent1
 
     background = dark_gray
 
@@ -29,7 +31,12 @@ class Colors:
 class Text:
     color: ManimColor = Colors.text
     weight: str = "NORMAL"
-    font: str = "Lato"
+    font: str = "Noto Sans"
+    font_size: float = 30
+
+@dataclass
+class Bulletpoints(Text):
+    vertical_spacing: float = 0.4
 
 @dataclass 
 class Slide:
@@ -60,7 +67,7 @@ class BasicSlide(Slide):
     class Title(Text):
         size: float = 0.7
         weight: str = "BOLD"
-        color: ManimColor = Colors.header1
+        color: ManimColor = Colors.accent1
 
     @dataclass
     class Separator():
@@ -72,20 +79,20 @@ class TitleSlide(Slide):
     @dataclass
     class Title(Text):
         weight: str = "BOLD"
-        size: float = 1
-        color: ManimColor = Colors.header1
+        scaling: float = 1
+        color: ManimColor = Colors.accent1
         alignment = RIGHT
 
     @dataclass
     class Subtitle(Text):
         weight: str = "BOLD"
-        size: float = 0.7
+        scaling: float = 0.7
         alignment = LEFT
 
     @dataclass
     class Author(Text):
         weight: str = "BOLD"
-        size: float = 0.6
+        scaling: float = 0.6
         color: ManimColor = Colors.text_muted
         alignment = LEFT
 

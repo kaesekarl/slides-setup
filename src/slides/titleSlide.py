@@ -79,9 +79,9 @@ class TitleSlide(VMobject):
 
     def make_all(self) -> VGroup:
         sep = self.make_separator()
-        title = self.make_title().scale(c.TitleSlide.Title.size).align_to(sep, DOWN).align_to(sep, RIGHT).shift(0.3*UP+0.5*LEFT)
-        subtitle = self.make_subtitle().scale(c.TitleSlide.Subtitle.size).align_to(sep, UP).align_to(sep, LEFT).shift(0.3*DOWN+0.5*RIGHT)
-        author = self.make_author().scale(c.TitleSlide.Author.size).next_to(subtitle, DOWN).align_to(subtitle, LEFT)
+        title = self.make_title().scale(c.TitleSlide.Title.scaling).align_to(sep, DOWN).align_to(sep, RIGHT).shift(0.3*UP+0.5*LEFT)
+        subtitle = self.make_subtitle().scale(c.TitleSlide.Subtitle.scaling).align_to(sep, UP).align_to(sep, LEFT).shift(0.3*DOWN+0.5*RIGHT)
+        author = self.make_author().scale(c.TitleSlide.Author.scaling).next_to(subtitle, DOWN).align_to(subtitle, LEFT)
 
         ret = VGroup(sep, title, subtitle, author)
         return ret
