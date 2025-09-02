@@ -27,6 +27,7 @@ from src.tools.slideCounter import Counter
 # All kinds of Custom VMobject-Types
 from src.objects.triangleGroup import TriangleGroup
 from src.objects.bulletList import BulletList
+from src.objects.numberedList import NumberedList
 
 ####################################################################################################################################################
 # Some basic settings for scene. Can be changed. Values should be stored in config
@@ -35,7 +36,8 @@ from src.objects.bulletList import BulletList
 config.background_color = c.Slide.Background.color
 Text.set_default(font=c.Slide.Text.font)
 Text.set_default(font_size=c.Slide.Text.font_size)
-MarkupText.set_default(font=c.Slide.Text.font)
+# MarkupText.set_default(font=c.Slide.Text.font)
+# MarkupText.set_default(font_size=c.Slide.Text.font_size)
 # BulletedList.set_default(font=c.Slide.Text.font)
 # BulletedList.set_default(font_size=c.Slide.Text.font_size)
 

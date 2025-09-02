@@ -79,20 +79,20 @@ class TitleSlide(Slide):
     @dataclass
     class Title(Text):
         weight: str = "BOLD"
-        scaling: float = 1
+        scaling: float = 1.3
         color: ManimColor = Colors.accent1
         alignment = RIGHT
 
     @dataclass
     class Subtitle(Text):
         weight: str = "BOLD"
-        scaling: float = 0.7
+        scaling: float = 1
         alignment = LEFT
 
     @dataclass
     class Author(Text):
         weight: str = "BOLD"
-        scaling: float = 0.6
+        scaling: float = 0.85
         color: ManimColor = Colors.text_muted
         alignment = LEFT
 

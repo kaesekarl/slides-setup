@@ -37,10 +37,10 @@ class TitleSlide(VMobject):
         conf = c.TitleSlide.Title
 
         if type(title) is str:
-            return VGroup(MarkupText(title, color=conf.color, font=conf.font, weight=conf.weight))
+            return VGroup(Text(title, color=conf.color, font=conf.font, weight=conf.weight))
 
         if type(title) is list:
-            ret = VGroup(*[MarkupText(i, color=conf.color, font=conf.font, weight=conf.weight) for i in title]).arrange(DOWN, aligned_edge=conf.alignment)
+            ret = VGroup(*[Text(i, color=conf.color, font=conf.font, weight=conf.weight) for i in title]).arrange(DOWN, aligned_edge=conf.alignment)
             return ret
         raise Exception(f"make_title needs a str or List[str] as title-parameter but is {type(title)}")
 
@@ -50,10 +50,10 @@ class TitleSlide(VMobject):
         conf = c.TitleSlide.Subtitle
 
         if type(subtitle) is str:
-            return VGroup(MarkupText(subtitle, color=conf.color))
+            return VGroup(Text(subtitle, color=conf.color))
 
         if type(subtitle) is list:
-            ret = VGroup(*[MarkupText(i, color=conf.color, font=conf.font, weight=conf.weight) for i in subtitle]).arrange(DOWN, aligned_edge=conf.alignment)
+            ret = VGroup(*[Text(i, color=conf.color, font=conf.font, weight=conf.weight) for i in subtitle]).arrange(DOWN, aligned_edge=conf.alignment)
             return ret
 
         raise Exception(f"make_subtitle needs a str or List[str] as subtitle-parameter but is {type(subtitle)}")
@@ -64,13 +64,13 @@ class TitleSlide(VMobject):
         conf = c.TitleSlide.Author
 
         if type(author) is str:
-            return VGroup(MarkupText(author, color=conf.color))
+            return VGroup(Text(author, color=conf.color))
 
         if type(author) is list:
-            ret = VGroup(*[MarkupText(i, color=conf.color, font=conf.font, weight=conf.weight) for i in author]).arrange(DOWN, aligned_edge=conf.alignment)
+            ret = VGroup(*[Text(i, color=conf.color, font=conf.font, weight=conf.weight) for i in author]).arrange(DOWN, aligned_edge=conf.alignment)
             return ret
 
-        raise Exception(f"make_subtitle needs a str or List[str] as subtitle-parameter but is {type(author)}")
+        raise Exception(f"make_author needs a str or List[str] as subtitle-parameter but is {type(author)}")
 
     def make_separator(self) -> VMobject:
         conf = c.TitleSlide.Separator

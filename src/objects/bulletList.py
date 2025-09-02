@@ -1,4 +1,6 @@
+import re
 from manim import *
+
 
 import src.config.config as c
 
@@ -6,10 +8,10 @@ class BulletList(VMobject):
     def __init__(self, bulletpoints:list[str], **kwargs):
         super().__init__(**kwargs)
 
+        self.__inv_ident = "|g"
         self.bulletpoints = bulletpoints
+        self.texts = self.__make_text(self.bulletpoints)
         self.dots = self.__make_points()
-        self.texts = self.__make_text()
-        self.lineheights = self.__get_line_heights()
 
         self.__align_elements()
         self.add(self.dots, self.texts)
@@ -18,23 +20,45 @@ class BulletList(VMobject):
     def num_of_bulletpoints(self):
         return len(self.bulletpoints)
 
+    def __add_invisible_identifier(self, bulletpoints:list[str]):
+        ret = []
+        for point in bulletpoints:
+            lines = point.splitlines()
+            new_point = [f"{self.__inv_ident}{line}" for line in lines]
+            ret.append("\n".join(new_point))
+        return ret
+
     def __make_points(self):
         ret = VGroup()
         for _ in range(self.num_of_bulletpoints):
             ret += Dot(radius=c.Text.font_size/450, color=c.Colors.text)
         return ret
 
-    def __make_text(self):
+    def __make_text(self, bulletpoints):
+        bulletpoints = self.__add_invisible_identifier(bulletpoints)
         ret = VGroup()
-        for i in self.bulletpoints:
-            ret += Text(i, font=c.Bulletpoints.font, font_size=c.Bulletpoints.font_size, line_spacing=0.5)
+        for i in bulletpoints:
+            point = Text(i, font=c.Bulletpoints.font, font_size=c.Bulletpoints.font_size, line_spacing=0.5)
+            matches = re.finditer(re.escape(self.__inv_ident), i)
+            inv_characters = [[match.start(), match.end()] for match in matches]
+            for shift, pos in enumerate(inv_characters):
+                point[pos[0]-shift:pos[1]-shift].set_opacity(0)
+            ret += point
         ret.arrange(DOWN, buff=c.Bulletpoints.vertical_spacing, aligned_edge=LEFT)
-        ret.move_to((-5.5, 2.5, 0), UL)
+        ret.move_to((-6.4, 2.5, 0), UL)
         return ret
 
     def __align_elements(self):
         for i in range(self.num_of_bulletpoints):
-            self.dots[i].next_to(self.texts[i], UL).shift(DOWN*0.5)
+            self.dots[i].next_to(self.texts[i], LEFT, aligned_edge=UL).shift(DOWN*0.1+RIGHT*0.35)
 
-    def __get_line_heights(self):
-        pass
+    # def find_all(self, point, text):
+    #     v = VMobject()
+    #     for start, end in self._find_indexes(text, self.text):
+    #         v.add([start:end])
+    #     return v
+    #
+    # def __get_first_line_center(self, bulletpoint:int):
+    #     cropped_line = self.bulletpoints[bulletpoint].split('\n')[0]
+    #     cropped_text = Text(cropped_line, font=c.Bulletpoints.font, font_size=c.Bulletpoints.font_size, line_spacing=0.5).move_to(self.texts[bulletpoint], UL)
+    #     return cropped_text.get_left()
