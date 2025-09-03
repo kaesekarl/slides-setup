@@ -38,6 +38,10 @@ class Text:
 class Bulletpoints(Text):
     vertical_spacing: float = 0.4
 
+@dataclass
+class NumberedList(Text):
+    vertical_spacing: float = 0.4
+
 @dataclass 
 class Slide:
 

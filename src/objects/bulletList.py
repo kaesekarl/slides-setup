@@ -1,4 +1,5 @@
 import re
+from typing import cast, Iterable
 from manim import *
 
 
@@ -15,6 +16,15 @@ class BulletList(VMobject):
 
         self.__align_elements()
         self.add(self.dots, self.texts)
+
+    def __getitem__(self, index):
+        if 0 <= index < len(self.dots):
+            texts_iterable = cast(Iterable[VMobject], self.texts[index])
+            dots_iterable = cast(Iterable[VMobject], self.dots[index])
+
+            return VGroup(*texts_iterable, *dots_iterable)
+        else:
+            raise IndexError("Index out of range")
 
     @property
     def num_of_bulletpoints(self):
@@ -45,7 +55,7 @@ class BulletList(VMobject):
                 point[pos[0]-shift:pos[1]-shift].set_opacity(0)
             ret += point
         ret.arrange(DOWN, buff=c.Bulletpoints.vertical_spacing, aligned_edge=LEFT)
-        ret.move_to((-6.4, 2.5, 0), UL)
+        ret.move_to((-6.0, 2.5, 0), UL)
         return ret
 
     def __align_elements(self):

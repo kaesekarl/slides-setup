@@ -10,14 +10,20 @@ class Intro(Slide):
         self.remove(titleslide)
 
         tocslide = BasicSlide("Inhalt")
-        toc = BulletList(["Moin",
-                            "Motivation\nress\ntest",
+        tocnum = NumberedList(["Moin",
+                            "Motivation",
                             "Gute Programme",
                             "Text Based Files",
                             "Best Practices"])
 
-        self.add(tocslide, toc)
-        self.add(SurroundingRectangle(toc.texts[1]))
+        tocbul = BulletList(["Moin",
+                            "Motivation",
+                            "Gute Programme",
+                            "Text Based Files",
+                            "Best Practices"])
+        self.add(tocslide)
+        for i in range(5):
+            self.play(Write(tocnum[i]))
 
         self.wait()
         self.pause()
