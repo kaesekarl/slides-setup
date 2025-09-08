@@ -89,6 +89,8 @@ watchdog = "==6.0.0"
 wcwidth = "==0.2.13"
 xlsxwriter = "==3.2.2"
 debugpy = "*"
+black = "*"
+isort = "*"
 
 [dev-packages]
 
