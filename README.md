@@ -18,7 +18,7 @@ It is mostly based on Manim, i just added some Classes, Functions and CLI-Tools 
 The Visual Style is **HEAVILY** influenced by [Karloso's LaTeX-Beamer Template](https://github.com/karlosos/zut-fibeamer) (Thx <3)
 
 ## Installation
-Please follow the Instructions for [ManimCE](https://github.com/ManimCommunity/manim/) (Thx <3). Then you can just Clone or Fork this Repository and get started. 
+Please follow the Instructions for [ManimCE](https://github.com/ManimCommunity/manim/) (Thx <3). Then you can just Fork this Repository and get started. 
 
 ## Usage
 You should have a basic familiarity with Manim itself. The Community has some great Resources:
