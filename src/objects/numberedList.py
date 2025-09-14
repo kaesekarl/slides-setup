@@ -1,5 +1,3 @@
-from typing import Dict
-
 from manim import *
 
 import src.config.config as c

@@ -20,12 +20,11 @@ class Moin(Slide):
 
         timeline = VGroup()
 
-        arrow = Arrow(start=(0, 3, 0), end=(0, -3, 0))
+        arrow = Arrow(start=sep_top, end=sep_bot)
         t_time = Text("t").next_to(arrow, DOWN)
         notches_pos = [arrow.point_from_proportion(i) for i in np.linspace(0.1, 0.9, 4)]
         stretch = (0.2, 0, 0)
         notches = [Line(start=p - stretch, end=p + stretch) for p in notches_pos]
-        point_pos = (3, 2.8, 0)
 
         timeline_texts = [
             "Abi 2019",
@@ -36,7 +35,16 @@ class Moin(Slide):
         timeline_points = VGroup()
         for num, t in enumerate(timeline_texts):
             timeline_points += Text(t).next_to(notches[num])
+        img = ImageMobject("assets/symbolbild_studieren.jpg").scale(0.7).to_edge(LEFT)
 
+        disclaimer_texts = [
+            "5 Jahre nur von Nerds umgeben",
+            "Linux Mensch, liebe FOSS",
+            "Leidenschaftlicher Hass auf\nGoogle, MS, Facebook, etc.",
+        ]
+
+        disclaimers = BulletList(disclaimer_texts).to_edge(RIGHT).set_y(0)
+        sep = Line(SEP_TOP, SEP_BOT).shift(0.6 * LEFT)
         self.add(bup)
         self.wait()
         self.play(
@@ -47,11 +55,26 @@ class Moin(Slide):
         )
 
         self.wait()
-        for p in timeline_points:
-            self.play(Write(p))
+        for i, p in enumerate(timeline_points):
+            if i == 2:
+                self.play(Write(p), GrowFromCenter(img))
+                self.wait(0.2)
+                self.pause()
+                self.play(ShrinkToCenter(img))
+                self.wait(0.2)
+                self.pause()
+            else:
+                self.play(Write(p))
+                self.wait(0.2)
+                self.pause()
         self.wait()
         self.play(
             *[Uncreate(i) for i in [arrow, t_time, *notches, timeline_points]],
             Restore(bup),
         )
+
+        self.play(bup[3].animate.set_color(c.Colors.accent1))
+        self.wait(0.2)
+        self.pause()
+        self.play(Write(disclaimers), Create(sep))
         self.wait()
