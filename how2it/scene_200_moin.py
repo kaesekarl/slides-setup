@@ -7,7 +7,7 @@ sys.path.insert(0, parent_dir)
 from setup import *
 
 
-class Moin(Slide):
+class Chapter_200_Moin(Slide):
     def construct(self):
         slide = BasicSlide("Moin!", count)
 
@@ -18,9 +18,7 @@ class Moin(Slide):
         bup = BulletList(["Moin!", "Jan Bielawa", "Timeline", "Bias Disclaimer"])
         bup.save_state()
 
-        timeline = VGroup()
-
-        arrow = Arrow(start=sep_top, end=sep_bot)
+        arrow = Arrow(start=SEPARATOR_TOP, end=SEPARATOR_BOT)
         t_time = Text("t").next_to(arrow, DOWN)
         notches_pos = [arrow.point_from_proportion(i) for i in np.linspace(0.1, 0.9, 4)]
         stretch = (0.2, 0, 0)
@@ -44,7 +42,7 @@ class Moin(Slide):
         ]
 
         disclaimers = BulletList(disclaimer_texts).to_edge(RIGHT).set_y(0)
-        sep = Line(SEP_TOP, SEP_BOT).shift(0.6 * LEFT)
+        sep = Line(SEPARATOR_TOP, SEPARATOR_BOT).shift(0.6 * LEFT)
         self.add(bup)
         self.wait()
         self.play(
@@ -77,4 +75,6 @@ class Moin(Slide):
         self.wait(0.2)
         self.pause()
         self.play(Write(disclaimers), Create(sep))
+        self.wait(0.2)
+        self.pause()
         self.wait()

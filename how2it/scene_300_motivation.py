@@ -7,7 +7,7 @@ sys.path.insert(0, parent_dir)
 from setup import *
 
 
-class Motivation(Slide):
+class Chapter_300_Motivation(Slide):
     def construct(self):
         slide = BasicSlide("Motivation", count)
         slide.save_state()
@@ -67,6 +67,14 @@ class Motivation(Slide):
         self.wait(0.2)
         self.pause()
         self.play(Uncreate(rechnung), Restore(slide), Create(achtzehnk_stunden))
+        self.wait(0.2)
+        self.pause()
+
+        tradeoffer = ImageMobject("assets/trade_offer.jpg").scale(1.2).to_edge(DOWN)
+        self.add(tradeoffer)
+        self.wait(0.2)
+        self.pause()
+        self.remove(tradeoffer)
         self.wait(0.2)
         self.pause()
 
