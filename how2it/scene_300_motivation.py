@@ -55,15 +55,23 @@ class Chapter_300_Motivation(Slide):
         ).next_to(underline_wochenstunden, DOWN, buff=0.2)
 
         rechnung = VGroup(
+            ein_kleines_rechenbeispiel,
             annahmen_text,
             wochenstunden,
-            ein_kleines_rechenbeispiel,
             underline_wochenstunden,
             ergebnis,
         )
 
         achtzehnk_stunden = Text("18.000 Stunden").move_to((6, 3, 0), UR)
-        self.play(Create(rechnung), slide.animate.set_opacity(0).scale(1.2))
+        self.play(
+            Create(ein_kleines_rechenbeispiel),
+            Create(annahmen_text),
+            Create(wochenstunden),
+            slide.animate.set_opacity(0).scale(1.2),
+        )
+        self.wait(0.2)
+        self.pause()
+        self.play(Create(underline_wochenstunden), Create(ergebnis))
         self.wait(0.2)
         self.pause()
         self.play(Uncreate(rechnung), Restore(slide), Create(achtzehnk_stunden))

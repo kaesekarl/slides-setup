@@ -1,7 +1,7 @@
 from manim import *
 
 import src.config.config as c
-from src.tools.slideCounter import Counter
+from src.objects.slideCounter import Counter
 
 
 class BasicSlide(VMobject):
