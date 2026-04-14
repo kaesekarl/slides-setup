@@ -7,7 +7,7 @@ sys.path.insert(0, parent_dir)
 from setup import *
 
 
-class Intro(Slide):
+class Chapter_100_Intro(Slide):
     def construct(self):
         titleslide = TitleSlide(
             "How2IT", "Ein Rundumschlag über alles mit Computern", "Jan Bielawa"

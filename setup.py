@@ -12,15 +12,15 @@ import src.config.config as c
 from src.objects.bulletList import BulletList
 from src.objects.numberedList import NumberedList
 
+# All kinds of Tool-Types
+from src.objects.slideCounter import Counter
+
 # All kinds of Custom VMobject-Types
 from src.objects.triangleGroup import TriangleGroup
 from src.slides.basicSlide import BasicSlide
 
 # All kinds of Slide-Types
 from src.slides.titleSlide import TitleSlide
-
-# All kinds of Tool-Types
-from src.tools.slideCounter import Counter
 
 ####################################################################################################################################################
 # Manim Imports
@@ -49,11 +49,14 @@ Text.set_default(font_size=c.Slide.Text.font_size)
 ####################################################################################################################################################
 
 count = Counter(1, 10)
-
+SEPARATOR_COORDS = [(0, 3, 0), (0, -3, 0)]
+SEPARATOR_TOP = SEPARATOR_COORDS[0]
+SEPARATOR_BOT = SEPARATOR_COORDS[1]
 
 ####################################################################################################################################################
 # Stuff to import at the Start of Files
 ####################################################################################################################################################
+
 # import os
 # import sys
 # parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

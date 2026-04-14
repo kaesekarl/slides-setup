@@ -61,6 +61,8 @@ class BulletList(VMobject):
             matches = re.finditer(re.escape(self.__inv_ident), i)
             inv_characters = [[match.start(), match.end()] for match in matches]
             for shift, pos in enumerate(inv_characters):
+                if shift != 0:
+                    shift += 1 + shift
                 point[pos[0] - shift : pos[1] - shift].set_opacity(0)
             ret += point
 

@@ -1,31 +1,41 @@
+import argparse
 import json
-import subprocess
 import os
 import shutil
+import subprocess
 
-# Output directory for sliced animations
-output_dir = "sliced_animations"
+# Use argparse to define and parse command-line arguments
+parser = argparse.ArgumentParser(
+    description="Slice animations from a presentation JSON file."
+)
+parser.add_argument(
+    "root_dir",
+    type=str,
+    help="The root directory of the project containing the 'how2it' folder.",
+)
+args = parser.parse_args()
+
+# Construct the paths based on the provided root directory
+root_dir = args.root_dir
+presentation_dir = os.path.join(root_dir, "presentation")
+output_dir = os.path.join(root_dir, "sliced_animations")
 
 # Location of json files
-location_json_files = "presentation"
-json_files = [f for f in os.listdir(location_json_files) if f.endswith(".json")]
-json_files = [f"{ f }" for f in json_files]
-print(json_files)
+json_files = [f for f in os.listdir(presentation_dir) if f.endswith(".json")]
+print(f"Processing JSON files: {json_files}")
 
 # Clear out the output directory
 if os.path.exists(output_dir):
     shutil.rmtree(output_dir)
-    os.makedirs(output_dir)
+os.makedirs(output_dir)
 
 for json_file in json_files:
+    json_path = os.path.join(presentation_dir, json_file)
 
     # Load the JSON file
-    with open(f"presentation/{json_file}", "r") as f:
+    with open(json_path, "r") as f:
         data = json.load(f)
-        print(data)
-
-    # Extract the list of MP4 files
-    mp4_files = data["files"]
+        print(f"Loaded data from {json_path}")
 
     # Process each slide
     for slide in data["slides"]:
@@ -34,13 +44,15 @@ for json_file in json_files:
         end_animation = slide["end_animation"]
 
         # Get the relevant MP4 files for this slide
-        slide_files = mp4_files[start_animation:end_animation]
+        slide_files = data["files"][start_animation:end_animation]
 
-        # Create a text file for FFmpeg input
+        # Create a temporary text file for FFmpeg input
         input_txt = f"input_slide_{slide_number}.txt"
         with open(input_txt, "w") as f:
             for file in slide_files:
-                f.write(f"file '{file}'\n")
+                # The video files are located relative to the presentation directory.
+                abs_file_path = os.path.join(root_dir, file.lstrip("./"))
+                f.write(f"file '{abs_file_path}'\n")
 
         # Output file path (inside the output directory)
         output_file_name = f"{json_file.rsplit('.', 1)[0]}_slide{slide_number}.mp4"
@@ -49,20 +61,24 @@ for json_file in json_files:
         # FFmpeg command to concatenate the videos for this slide
         ffmpeg_command = [
             "ffmpeg",
-            "-f", "concat",          # Use the concat demuxer
-            "-safe", "0",            # Allow unsafe file paths
-            "-i", input_txt,         # Input file list
-            "-c", "copy",            # Copy codec (no re-encoding)
-            output_file,             # Output file
-            "-y"
+            "-f",
+            "concat",
+            "-safe",
+            "0",
+            "-i",
+            input_txt,
+            "-c",
+            "copy",
+            output_file,
+            "-y",
         ]
 
         # Run the FFmpeg command
         subprocess.run(ffmpeg_command)
 
         # Clean up the temporary input file
-        subprocess.run(["rm", input_txt])
+        os.remove(input_txt)
 
         print(f"Slide {slide_number} video created: {output_file}")
 
-print("All slide videos created successfully!")
+print("All slide videos created successfully! 🎉")
