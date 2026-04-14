@@ -47,9 +47,14 @@
 
 from setup import *
 
+
 class Scene1(Slide):
     def construct(self):
-        slide0 = TitleSlide("Dies ist ein Test für den Titel", "Dies könnte ein funny Subtitle für die Präsi sein", "und so heiße ich")
+        slide0 = TitleSlide(
+            "Dies ist ein Test für den Titel",
+            "Dies könnte ein funny Subtitle für die Präsi sein",
+            "und so heiße ich",
+        )
         slide1 = BasicSlide("Erster Part", count)
 
         self.play(Write(slide0))
@@ -68,6 +73,7 @@ class Scene1(Slide):
         self.pause()
         self.wait()
 
+
 class Scene2(Slide):
     def construct(self):
         slide0 = BasicSlide("Sinnvolle Programme", count)
@@ -84,11 +90,13 @@ class Scene2(Slide):
         self.pause()
         self.wait()
 
+
 class Scene3(Slide):
     def construct(self):
         tri = TriangleGroup()
         self.add(tri)
         self.wait()
+
 
 # with tempconfig({"quality": "high_quality", "preview": True}):
 #     scene = Scene1()

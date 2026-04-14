@@ -1,0 +1,4 @@
+# This file is used internally by FFMPEG.
+file 'file:/home/janbx/100-code/slides-setup/media/videos/scene_400_gute_programme/1080p60/partial_movie_files/Motivation/2199271452_2688965532_2374969645.mp4'
+file 'file:/home/janbx/100-code/slides-setup/media/videos/scene_400_gute_programme/1080p60/partial_movie_files/Motivation/1745348197_2688965532_210259938.mp4'
+file 'file:/home/janbx/100-code/slides-setup/media/videos/scene_400_gute_programme/1080p60/partial_movie_files/Motivation/1745348197_2688965532_3278671325.mp4'

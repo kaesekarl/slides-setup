@@ -39,6 +39,7 @@ class Chapter_200_Moin(Slide):
             "5 Jahre nur von Nerds umgeben",
             "Linux Mensch, liebe FOSS",
             "Leidenschaftlicher Hass auf\nGoogle, MS, Facebook, etc.",
+            "IT ist politisch",
         ]
 
         disclaimers = BulletList(disclaimer_texts).to_edge(RIGHT).set_y(0)
