@@ -29,7 +29,7 @@ class Colors:
     950       → near-black tint
     """
 
-    # ── Reds & Pinks (warm tones) ─────────────────────────────────────
+    # -- Reds & Pinks (warm tones) -------------------------------------
     red_50 = ManimColor.from_hex("#fef2f2")
     red_100 = ManimColor.from_hex("#ffe2e2")
     red_200 = ManimColor.from_hex("#ffc9c9")
@@ -78,7 +78,7 @@ class Colors:
     fuchsia_900 = ManimColor.from_hex("#721378")
     fuchsia_950 = ManimColor.from_hex("#4b004f")
 
-    # ── Purples ─────────────────────────────────────
+    # -- Purples -------------------------------------
     violet_50 = ManimColor.from_hex("#f5f3ff")
     violet_100 = ManimColor.from_hex("#ede9fe")
     violet_200 = ManimColor.from_hex("#ddd6ff")
@@ -115,7 +115,7 @@ class Colors:
     indigo_900 = ManimColor.from_hex("#312c85")
     indigo_950 = ManimColor.from_hex("#1e1a4d")
 
-    # ── Blues ─────────────────────────────────────
+    # -- Blues -------------------------------------
     blue_50 = ManimColor.from_hex("#eff6ff")
     blue_100 = ManimColor.from_hex("#dbeafe")
     blue_200 = ManimColor.from_hex("#bedbff")
@@ -152,7 +152,7 @@ class Colors:
     cyan_900 = ManimColor.from_hex("#104e64")
     cyan_950 = ManimColor.from_hex("#053345")
 
-    # ── Greens & Teals ─────────────────────────────────────
+    # -- Greens & Teals -------------------------------------
     teal_50 = ManimColor.from_hex("#f0fdfa")
     teal_100 = ManimColor.from_hex("#cbfbf1")
     teal_200 = ManimColor.from_hex("#96f7e4")
@@ -201,7 +201,7 @@ class Colors:
     lime_900 = ManimColor.from_hex("#35530e")
     lime_950 = ManimColor.from_hex("#192e03")
 
-    # ── Yellows & Oranges ─────────────────────────────────────
+    # -- Yellows & Oranges -------------------------------------
     yellow_50 = ManimColor.from_hex("#fefce8")
     yellow_100 = ManimColor.from_hex("#fef9c2")
     yellow_200 = ManimColor.from_hex("#fff085")
@@ -238,7 +238,7 @@ class Colors:
     orange_900 = ManimColor.from_hex("#7e2a0c")
     orange_950 = ManimColor.from_hex("#441306")
 
-    # ── Neutrals — Cool-tinted (blue-gray) ─────────────────────────────────────
+    # -- Neutrals - Cool-tinted (blue-gray) -------------------------------------
     slate_50 = ManimColor.from_hex("#f8fafc")
     slate_100 = ManimColor.from_hex("#f1f5f9")
     slate_200 = ManimColor.from_hex("#e2e8f0")
@@ -275,7 +275,7 @@ class Colors:
     zinc_900 = ManimColor.from_hex("#18181b")
     zinc_950 = ManimColor.from_hex("#09090b")
 
-    # ── Neutrals — Warm-tinted (brown-gray) ─────────────────────────────────────
+    # -- Neutrals - Warm-tinted (brown-gray) -------------------------------------
     stone_50 = ManimColor.from_hex("#fafaf9")
     stone_100 = ManimColor.from_hex("#f5f5f4")
     stone_200 = ManimColor.from_hex("#e7e5e4")
@@ -312,7 +312,7 @@ class Colors:
     neutral_900 = ManimColor.from_hex("#171717")
     neutral_950 = ManimColor.from_hex("#0a0a0a")
 
-    # ── Subtle Tints ─────────────────────────────────────
+    # -- Subtle Tints -------------------------------------
     mist_50 = ManimColor.from_hex("#f9fbfb")
     mist_100 = ManimColor.from_hex("#f1f3f3")
     mist_200 = ManimColor.from_hex("#e3e7e8")
@@ -349,11 +349,11 @@ class Colors:
     olive_900 = ManimColor.from_hex("#1d1d16")
     olive_950 = ManimColor.from_hex("#0c0c09")
 
-    # ── Special ─────────────────────────────────────────────────
+    # -- Special -------------------------------------------------
     black = ManimColor.from_hex("#000000")
     white = ManimColor.from_hex("#ffffff")
 
-    # ── Project Colors ───────────────────────────────────────────
+    # -- Project Colors -------------------------------------------
     # ZUT Colors
     zut_blue = ManimColor.from_hex("#6CADDF")
     dark_gray = ManimColor.from_hex("#2B2E34")
@@ -361,7 +361,7 @@ class Colors:
     # NULL Colors
     null_blue = ManimColor.from_hex("#4860A3")
 
-    # ── Semantic / Function Colors ───────────────────────────────
+    # -- Semantic / Function Colors -------------------------------
     # Override these to change the visual theme
     text = white
     text_muted = gray_400
