@@ -1,6 +1,8 @@
 import os
 import sys
 
+from numpy import csingle
+
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, parent_dir)
 
@@ -47,7 +49,7 @@ class Chapter_200_Moin(Slide):
         self.add(bup)
         self.wait()
         self.play(
-            bup[2].animate.set_color(c.Colors.accent1),
+            bup[2].animate.set_color(cs.accent1),
             Create(arrow),
             Write(t_time),
             *[Create(notch) for notch in notches],
@@ -72,7 +74,7 @@ class Chapter_200_Moin(Slide):
             Restore(bup),
         )
 
-        self.play(bup[3].animate.set_color(c.Colors.accent1))
+        self.play(bup[3].animate.set_color(cs.accent1))
         self.wait(0.2)
         self.pause()
         self.play(Write(disclaimers), Create(sep))

@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+from cloup import Color
 from manim import LEFT, RIGHT, ManimColor
 
 
@@ -363,18 +364,31 @@ class Colors:
 
     # -- Semantic / Function Colors -------------------------------
     # Override these to change the visual theme
-    text = white
-    text_muted = gray_400
+    # text = white
+    # text_muted = gray_400
 
-    accent1 = zut_blue
-    header1 = accent1
+    # accent1 = zut_blue
+    # header1 = accent1
 
-    background = dark_gray
+    # background = dark_gray
 
 
 @dataclass
+class Darktheme(Colors):
+    text = Colors.white
+    text_muted = Colors.gray_400
+
+    accent1 = Colors.zut_blue
+
+    header1 = accent1
+    background = Colors.dark_gray
+
+
+ColorScheme = Darktheme()
+
+
 class Text:
-    color: ManimColor = Colors.text
+    color: ManimColor = ColorScheme.text
     weight: str = "NORMAL"
     font: str = "Noto Sans"
     font_size: float = 30
@@ -399,17 +413,17 @@ class Slide:
 
     @dataclass
     class Background:
-        color: ManimColor = Colors.background
+        color: ManimColor = ColorScheme.background
 
     @dataclass
     class Counter(Text):
-        color: ManimColor = Colors.text_muted
+        color: ManimColor = ColorScheme.text_muted
         size: float = 0.7
 
         @dataclass
         class ProgressBar:
-            bar_color1: ManimColor = Colors.header1
-            bar_color2: ManimColor = Colors.text_muted
+            bar_color1: ManimColor = ColorScheme.header1
+            bar_color2: ManimColor = ColorScheme.text_muted
             thickness: float = 0.1
 
 
@@ -420,11 +434,11 @@ class BasicSlide(Slide):
     class Title(Text):
         size: float = 0.7
         weight: str = "BOLD"
-        color: ManimColor = Colors.accent1
+        color: ManimColor = ColorScheme.accent1
 
     @dataclass
     class Separator:
-        color = Colors.text_muted
+        color = ColorScheme.text_muted
 
 
 @dataclass
@@ -434,7 +448,7 @@ class TitleSlide(Slide):
     class Title(Text):
         weight: str = "BOLD"
         scaling: float = 1.3
-        color: ManimColor = Colors.accent1
+        color: ManimColor = ColorScheme.accent1
         alignment = RIGHT
 
     @dataclass
@@ -447,12 +461,12 @@ class TitleSlide(Slide):
     class Author(Text):
         weight: str = "BOLD"
         scaling: float = 0.85
-        color: ManimColor = Colors.text_muted
+        color: ManimColor = ColorScheme.text_muted
         alignment = LEFT
 
     @dataclass
     class Separator:
-        color: ManimColor = Colors.text_muted
+        color: ManimColor = ColorScheme.text_muted
         start = [-6, 1, 0]
         end = [6, 1, 0]
         dashed_ratio = 0.5
@@ -464,6 +478,6 @@ class TriangleGroup:
 
     @dataclass
     class Angles:
-        angle_1 = Colors.red_200
-        angle_2 = Colors.green_200
-        angle_3 = Colors.blue_200
+        angle_1 = ColorScheme.red_200
+        angle_2 = ColorScheme.green_200
+        angle_3 = ColorScheme.blue_200

@@ -45,7 +45,7 @@ class BulletList(VMobject):
     def __make_points(self):
         ret = VGroup()
         for _ in range(self.num_of_bulletpoints):
-            ret += Dot(radius=c.Text.font_size / 450, color=c.Colors.text)
+            ret += Dot(radius=c.Text.font_size / 450, color=c.Text.color)
         return ret
 
     def __make_text(self, bulletpoints):

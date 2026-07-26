@@ -9,6 +9,9 @@ from manim_presentation import (
 )  # I don't use this for the presentation itself, i create separate files in the end (see concat_scenes.py)
 
 import src.config.config as c
+
+# To change the theme, set the "Theme" variable in the config.py
+from src.config.config import ColorScheme as cs
 from src.objects.bulletList import BulletList
 from src.objects.numberedList import NumberedList
 
