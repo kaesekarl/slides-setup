@@ -380,6 +380,9 @@ class Darktheme(Colors):
 
     accent1 = Colors.zut_blue
 
+    accent_good = Colors.green_200
+    accent_bad = Colors.red_200
+
     header1 = accent1
     background = Colors.dark_gray
 

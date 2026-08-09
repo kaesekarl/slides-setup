@@ -17,13 +17,13 @@ class Chapter_400_Gute_Programme(Slide):
 
         kriterien_positiv = (
             BulletList(["Open Source", "Kostenlos", "Offene Dateiformate", "Cloudlos"])
-            .set_color(c.Colors.green_200)
+            .set_color(cs.accent_good)
             .to_corner(UL, 1.5)
         )
 
         kriterien_negativ = (
             BulletList(["Abo-Modelle", "Proprietäre Dateiformate", "Datenkraken"])
-            .set_color(c.Colors.red_200)
+            .set_color(cs.accent_bad)
             .to_corner(UR, 1.5)
         )
 

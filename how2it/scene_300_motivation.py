@@ -19,7 +19,7 @@ class Chapter_300_Motivation(Slide):
             Text("Ein kleines Rechenbeispiel")
             .scale(1.2)
             .to_edge(UP, buff=0.2)
-            .set_color(c.Colors.accent1)
+            .set_color(cs.accent1)
         )
 
         annahmen_text = Text("Annahmen")
