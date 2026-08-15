@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 
-from cloup import Color
 from manim import LEFT, RIGHT, ManimColor
 
 
