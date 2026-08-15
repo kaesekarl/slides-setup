@@ -20,7 +20,7 @@ class NumberedList(VMobject):
         if 0 <= index < len(all_entries) / 2:
             return VGroup(all_entries[index * 2], all_entries[index * 2 + 1])
         else:
-            raise IndexError("index is out of bounds")
+            raise IndexError("Index is out of bounds")
 
     def __make_data(self, bulletpoints_list: list[str]):
         ret = []
